@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+        {% for post in posts %}
+        <div>
+            <h1><a href="/post/{{post.id}}">{{ post.title }}</a></h1>
+			<p>published: {{ post.published_date }}</p>
+            <p><p class="btn btn-default" ><span class="glyphicon glyphicon-envelope"></span></p>
+            {% if post.comments < 10 %}
+                unpopular post
+            {% else %}
+                comments:{{ post.comments }}
+            {% endif %}
+            </p>
+
+        </div>
+        {% endfor %}
+
+{% endblock content %}

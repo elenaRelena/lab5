@@ -1,0 +1,15 @@
+    {% extends 'blog/base.html' %}
+
+    {% block content %}
+        <div>
+            <h1>{{ post.title }}</h1>
+            <p>by {{ post.author }}</p>
+            <p>published: {{ post.published_date }}</p>
+            {% if post.comments < 10 %}
+                <p>unpopular post</p>
+            {% else %}
+                <p>comments:{{ post.comments }} </p>
+            {% endif %}
+            {% include 'blog/comments.html' %}
+        </div>
+    {% endblock %}
